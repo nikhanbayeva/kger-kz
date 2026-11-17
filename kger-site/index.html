@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kazakhstan Green Energy Reserve — «Мирный» жел жобасы негізіндегі жел, күн және аккумулятор гибридті кешенінің моделі. Авторы: Ерәділова Данайым Мұратқызы. Ғылыми жетекшісі: Ниханбаева Әсел Қуанышқызы.">
+<meta name="author" content="Ерәділова Данайым Мұратқызы">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='16' fill='%230C4A6E'/%3E%3Ccircle cx='17' cy='14' r='5' fill='%23F2C14E'/%3E%3C/svg%3E">
+<style>html{scroll-behavior:smooth}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Kazakhstan Green Energy Reserve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap&subset=cyrillic-ext">
+<style>
+/* Layout: steppe horizon hero → key facts → project model switch → live (simulated) graph → system diagram → innovations → benefits → lifecycle → FAQ */
+:root{
+  --bg:#F3F7F9; --surface:#FFFFFF; --ink:#0E2233; --muted:#566978; --line:#D6E1E8;
+  --sky:#007FA3; --sun:#B97A00; --wind:#0A8FB8; --solar:#E3A008; --batt:#2F8F5B; --demand:#0E2233;
+  --hero-top:#0C4A6E; --hero-bot:#1D7FA6; --hero-ink:#F2FAFD; --steppe:#C9A64B; --steppe2:#A7883A;
+  --chip:#E4F2F7;
+  --f-display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A141C; --surface:#11202B; --ink:#E6EFF4; --muted:#94A8B6; --line:#20384A;
+  --sky:#45C6E8; --sun:#F2C14E; --wind:#45C6E8; --solar:#F2C14E; --batt:#5CC98D; --demand:#E6EFF4;
+  --hero-top:#06263A; --hero-bot:#0D4F6E; --hero-ink:#F2FAFD; --steppe:#8E7432; --steppe2:#6E5A26;
+  --chip:#163243; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A141C; --surface:#11202B; --ink:#E6EFF4; --muted:#94A8B6; --line:#20384A;
+  --sky:#45C6E8; --sun:#F2C14E; --wind:#45C6E8; --solar:#F2C14E; --batt:#5CC98D; --demand:#E6EFF4;
+  --hero-top:#06263A; --hero-bot:#0D4F6E; --hero-ink:#F2FAFD; --steppe:#8E7432; --steppe2:#6E5A26;
+  --chip:#163243; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero-top)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.2;margin:0}
+h2{font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:700}
+h3{font-size:1.05rem;font-weight:500}
+p{margin:0}
+a{color:var(--sky)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
+section{padding-block:72px}
+.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:680px}
+.sec-head p{color:var(--muted)}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:var(--chip);color:var(--sky);white-space:nowrap}
+.tag.new{color:var(--sun)}
+
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--hero-top);color:var(--hero-ink)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-size:.85rem;font-weight:700;letter-spacing:.02em;color:var(--hero-ink);text-decoration:none;line-height:1.15}
+.logo small{display:block;font-weight:500;font-size:.62rem;opacity:.75;letter-spacing:.08em}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:.88rem}
+nav a{color:var(--hero-ink);text-decoration:none;opacity:.85}
+nav a:hover{opacity:1;text-decoration:underline}
+.menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.35);color:var(--hero-ink);border-radius:6px;padding:6px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+@media (max-width:860px){
+  .menu-btn{display:block}
+  nav ul{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--hero-top);padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+  nav ul.open{display:flex}
+  nav li a{display:block;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+}
+
+/* hero */
+.hero{background:linear-gradient(180deg,var(--hero-top),var(--hero-bot));color:var(--hero-ink);position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2;padding-block:64px 200px;display:grid;gap:20px}
+.hero h1{font-size:clamp(2rem,6vw,4rem);font-weight:700;max-width:14ch;letter-spacing:-.01em}
+.hero p.lead{max-width:56ch;font-size:1.1rem;opacity:.92}
+.hero .eyebrow{color:var(--sun)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:8px;font-weight:600;text-decoration:none;font-size:.95rem}
+.btn.primary{background:var(--sun);color:#0E2233}
+.btn.ghost{border:1px solid rgba(255,255,255,.45);color:var(--hero-ink)}
+.horizon{position:absolute;left:0;right:0;bottom:0;width:100%;height:230px;z-index:1}
+.blades{transform-box:fill-box;transform-origin:center;animation:spin 6s linear infinite}
+.blades.b2{animation-duration:8s}.blades.b3{animation-duration:5s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.blades{animation:none}}
+.note{font-size:.8rem;opacity:.8;max-width:60ch}
+.authors{display:flex;flex-wrap:wrap;gap:6px 24px;font-size:.92rem;margin-top:4px}
+.authors b{font-weight:600;color:var(--sun)}
+.credits{display:grid;gap:10px;margin:18px 0 0}
+.credits div{display:grid;gap:2px}
+.credits dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.credits dd{margin:0;font-weight:600;font-size:.98rem}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:-56px;position:relative;z-index:3}
+.fact{background:var(--surface);padding:22px 20px;display:grid;gap:4px;align-content:start}
+.fact b{font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:700;font-variant-numeric:tabular-nums}
+.fact span{color:var(--muted);font-size:.88rem}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,1fr)}}
+
+/* overview */
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+.two > *{min-width:0}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:32px}}
+.prose{display:grid;gap:16px;max-width:62ch}
+.ledger{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.ledger div{display:flex;justify-content:space-between;gap:16px;padding:12px 16px;border-top:1px solid var(--line);font-size:.92rem}
+.ledger div:first-child{border-top:none}
+.ledger dt{color:var(--muted)}
+.ledger dd{margin:0;font-family:var(--f-mono);font-size:.85rem;text-align:right;font-variant-numeric:tabular-nums}
+
+/* model switch */
+.model{background:var(--surface);border-block:1px solid var(--line)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;padding:4px;gap:4px;background:var(--bg);flex-wrap:wrap}
+.seg button{font:inherit;font-size:.9rem;font-weight:600;border:none;background:none;color:var(--muted);padding:8px 16px;border-radius:6px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--sky);color:var(--surface)}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+@media (max-width:860px){.mgrid{grid-template-columns:repeat(2,1fr)}}
+.mcell{border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:6px;background:var(--bg)}
+.mcell .lbl{font-size:.82rem;color:var(--muted)}
+.mcell .val{font-family:var(--f-display);font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums}
+.mcell .val small{font-family:var(--f-body);font-size:.85rem;font-weight:500;color:var(--muted)}
+.mcell .delta{font-family:var(--f-mono);font-size:.75rem;color:var(--batt);min-height:1.2em}
+.assume{margin-top:16px;font-size:.8rem;color:var(--muted);max-width:80ch}
+
+/* chart */
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:12px;font-size:.85rem}
+.legend label{display:inline-flex;align-items:center;gap:8px;cursor:pointer;color:var(--ink)}
+.legend i{width:14px;height:10px;border-radius:2px;display:inline-block}
+.chart-scroll{overflow-x:auto}
+#chart{display:block;width:100%;min-width:620px;height:auto}
+#chart text{font-family:var(--f-mono);font-size:10px;fill:var(--muted)}
+.chart-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:10px;font-size:.8rem;color:var(--muted)}
+#readout{font-family:var(--f-mono);font-size:.78rem;color:var(--ink);min-height:1.4em}
+
+/* flow */
+.flow-scroll{overflow-x:auto}
+.flow{min-width:720px;width:100%;height:auto;display:block}
+.flow text{font-family:var(--f-body);fill:var(--ink)}
+.flow .sub{fill:var(--muted);font-size:11px}
+
+/* innovations */
+.inno{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.icard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;gap:10px;align-content:start}
+.icard .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.icard .num{font-family:var(--f-mono);font-size:.8rem;color:var(--sky)}
+.icard p{color:var(--muted);font-size:.93rem}
+.icard ul{margin:0;padding-left:18px;font-size:.88rem;display:grid;gap:4px}
+
+/* benefits */
+.ben{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.ben{grid-template-columns:1fr}}
+.bcard{border-top:3px solid var(--sun);padding-top:18px;display:grid;gap:10px;align-content:start}
+.bcard .eyebrow{color:var(--sun)}
+.bcard b{font-family:var(--f-display);font-size:1.5rem}
+.bcard p{color:var(--muted);font-size:.93rem}
+
+/* lifecycle */
+.life{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.life li{display:grid;grid-template-columns:56px 1fr;gap:16px;position:relative;padding-bottom:28px}
+.life li::before{counter-increment:s;content:counter(s);width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:var(--surface);display:grid;place-items:center;font-family:var(--f-mono);font-weight:600;color:var(--muted);z-index:1}
+.life li::after{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--line)}
+.life li:last-child::after{display:none}
+.life li.done::before{border-color:var(--sky);color:var(--sky)}
+.life li.now::before{background:var(--sun);border-color:var(--sun);color:#0E2233}
+.life h3{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.life .when{font-family:var(--f-mono);font-size:.75rem;color:var(--sky)}
+.life p{color:var(--muted);font-size:.93rem;max-width:62ch;margin-top:4px}
+.here{background:var(--sun);color:#0E2233;font-family:var(--f-mono);font-size:.68rem;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.06em}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding-block:16px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--f-mono);color:var(--sky)}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:10px;max-width:70ch}
+
+footer{background:var(--hero-top);color:var(--hero-ink);font-size:.85rem}
+footer .wrap{padding-block:40px;display:grid;gap:20px}
+footer .cols{display:grid;grid-template-columns:2fr 1fr;gap:32px}
+footer .cols > *{min-width:0}
+@media (max-width:760px){footer .cols{grid-template-columns:1fr}}
+footer a{color:var(--sun);word-break:break-word}
+footer ul{margin:0;padding-left:18px;display:grid;gap:4px}
+footer .fine{opacity:.7;font-size:.78rem}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Kazakhstan Green Energy Reserve">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="14" r="5" fill="var(--sun)"/><path d="M4 24 Q17 18 30 24" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M17 14 V29" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span>KAZAKHSTAN<br>GREEN ENERGY RESERVE<small>KGER · ЖАМБЫЛ ОБЛЫСЫ</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Мәзір</button>
+    <nav aria-label="Негізгі мәзір">
+      <ul id="menu">
+        <li><a href="#about">Жоба туралы</a></li>
+        <li><a href="#model">Жоба моделі</a></li>
+        <li><a href="#live">Деректер графигі</a></li>
+        <li><a href="#tech">Технология</a></li>
+        <li><a href="#benefits">Пайдасы</a></li>
+        <li><a href="#lifecycle">Кезеңдер</a></li>
+        <li><a href="#faq">Сұрақтар</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Жел · Күн · Аккумулятор · Жасанды интеллект</span>
+    <h1>Дала желі — тұрақты электр қуаты</h1>
+    <p class="lead">Kazakhstan Green Energy Reserve — «Мирный» жел электр станциясы негізінде ұсынылған гибридті энергия кешенінің моделі. 1 ГВт жел қуатына күн станциясы, кеңейтілген аккумуляторлық жүйе және ЖИ арқылы басқару қосылады.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#model">Жоба моделін көру</a>
+      <a class="btn ghost" href="#live">Деректер графигі</a>
+    </div>
+    <p class="authors"><span>Жобаны құрастырған: <b>Ерәділова Данайым Мұратқызы</b></span><span>Ғылыми жетекшісі: <b>Ниханбаева Әсел Қуанышқызы</b></span></p>
+    <p class="note">Оқу-зерттеу жобасы. Hornsdale Power Reserve (Оңтүстік Австралия) тәжірибесіне сүйеніп жасалған тұжырымдама; ресми сайт емес.</p>
+  </div>
+  <svg class="horizon" viewBox="0 0 1200 230" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <circle cx="960" cy="120" r="46" fill="var(--sun)" opacity=".9"/>
+    <path d="M0 170 Q200 140 420 160 T820 150 T1200 158 V230 H0Z" fill="var(--steppe2)" opacity=".55"/>
+    <path d="M0 190 Q260 165 560 185 T1200 178 V230 H0Z" fill="var(--steppe)"/>
+    <g fill="var(--hero-ink)" stroke="var(--hero-ink)">
+      <g><rect x="198" y="80" width="4" height="100" stroke="none"/><g class="blades" ><path d="M200 80 L203 40 L200 34 L197 40Z M200 80 L237 95 L241 99 L235 99Z M200 80 L163 95 L159 99 L165 99Z" stroke="none"/></g><circle cx="200" cy="80" r="4" stroke="none"/></g>
+      <g><rect x="348" y="100" width="3" height="80" stroke="none"/><g class="blades b2"><path d="M349.5 100 L352 68 L349.5 63 L347 68Z M349.5 100 L379 112 L382 115 L377 115Z M349.5 100 L320 112 L317 115 L322 115Z" stroke="none"/></g><circle cx="349.5" cy="100" r="3" stroke="none"/></g>
+      <g><rect x="478" y="112" width="3" height="66" stroke="none"/><g class="blades b3"><path d="M479.5 112 L481.5 86 L479.5 82 L477.5 86Z M479.5 112 L503 122 L506 124 L502 124Z M479.5 112 L456 122 L453 124 L457 124Z" stroke="none"/></g><circle cx="479.5" cy="112" r="2.5" stroke="none"/></g>
+    </g>
+    <g fill="var(--hero-top)" opacity=".85">
+      <rect x="640" y="168" width="34" height="14" rx="1"/><rect x="680" y="168" width="34" height="14" rx="1"/><rect x="720" y="168" width="34" height="14" rx="1"/>
+    </g>
+    <g fill="var(--hero-top)" opacity=".7">
+      <path d="M800 186 l40 -12 l40 12Z"/><path d="M870 188 l40 -12 l40 12Z"/><path d="M940 190 l40 -12 l40 12Z"/>
+    </g>
+  </svg>
+</div>
+
+<div class="wrap">
+  <div class="facts" role="list">
+    <div class="fact" role="listitem"><b>1 ГВт</b><span>жел қуаты, 150 турбина</span></div>
+    <div class="fact" role="listitem"><b>600 МВт·сағ</b><span>Қазақстандағы алғашқы ірі аккумулятор (BESS)</span></div>
+    <div class="fact" role="listitem"><b>100 ТВт·сағ</b><span>25 жылда өндірілетін «таза» электр</span></div>
+    <div class="fact" role="listitem"><b>~1 млн</b><span>адамды электрмен қамту</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap two">
+    <div class="prose">
+      <span class="eyebrow">Жоба туралы</span>
+      <h2>Жел мен батареяның бір жүйедегі жұмысы</h2>
+      <p>Hornsdale Power Reserve — әлемдегі алғашқы «үлкен батареялардың» бірі. Ол жел электр станциясының жанында орналасып, желіге жиілікті ұстау және резерв қызметтерін көрсетеді. Біздің жоба осы идеяны Қазақстанның дала жағдайына бейімдейді.</p>
+      <p>Негіз — Жамбыл облысы Мойынқұм ауданындағы «Мирный» жобасы: 1 ГВт жел станциясы және 600 МВт·сағ аккумуляторлық жүйе. Kazakhstan Green Energy Reserve оған бес жаңалық қосады: күн станциясы, кеңейтілген сақтау жүйесі, ЖИ арқылы диспетчерлеу, экологиялық мониторинг және электр желілерін жаңғырту.</p>
+      <p>Мақсат — көмірге тәуелді энергожүйеде жаңартылатын энергияның үзілісті сипатын жұмсарту және 2060 жылғы көміртек бейтараптығы мақсатына үлес қосу.</p>
+    </div>
+    <dl class="ledger" aria-label="Базалық жоба деректері">
+      <div><dt>Орналасуы</dt><dd>Жамбыл обл., Мойынқұм ауданы</dd></div>
+      <div><dt>Жел қуаты</dt><dd>1 000 МВт · 150 турбина</dd></div>
+      <div><dt>Турбина жеткізушілері</dt><dd>Envision, SANY</dd></div>
+      <div><dt>Аккумулятор (BESS)</dt><dd>600 МВт·сағ · Saft</dd></div>
+      <div><dt>Инвестиция</dt><dd>≈ 1,2 млрд $</dd></div>
+      <div><dt>Иелері</dt><dd>TotalEnergies 60% · Samruk-Energy 20% · ҚМГ 20%</dd></div>
+      <div><dt>Электр сату шарты</dt><dd>PPA, 25 жыл (2023)</dd></div>
+      <div><dt>Іске қосу</dt><dd>2028 ж. IV тоқсан → толық қуат 2029</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="model" id="model">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Жоба моделі</span>
+      <h2>Базалық жоба мен KGER моделін салыстыру</h2>
+      <p>Батырманы ауыстырып, «Мирный» базалық жобасы мен ұсынылған гибридті модельдің көрсеткіштерін салыстырыңыз.</p>
+    </div>
+    <div class="seg" role="group" aria-label="Сценарий">
+      <button id="btnBase" aria-pressed="false">«Мирный» (базалық)</button>
+      <button id="btnModel" aria-pressed="true">KGER моделі (ұсыныс)</button>
+    </div>
+    <div class="mgrid" aria-live="polite">
+      <div class="mcell"><span class="lbl">Орнатылған қуат</span><span class="val" id="vCap"></span><span class="delta" id="dCap"></span></div>
+      <div class="mcell"><span class="lbl">Жылдық өндіріс</span><span class="val" id="vGen"></span><span class="delta" id="dGen"></span></div>
+      <div class="mcell"><span class="lbl">Энергия сақтау</span><span class="val" id="vSto"></span><span class="delta" id="dSto"></span></div>
+      <div class="mcell"><span class="lbl">CO₂ азайту (жылына)</span><span class="val" id="vCo2"></span><span class="delta" id="dCo2"></span></div>
+    </div>
+    <p class="assume">Есептеу болжамдары: жел — 100 ТВт·сағ / 25 жыл ≈ 4,0 ТВт·сағ/жыл (ресми дерек). Күн станциясы 300 МВт, жүктеме коэффициенті 20% (модельдік болжам). Аккумулятор 1 ГВт·сағ / 400 МВт-қа дейін кеңейтілді (ұсыныс). CO₂ — көмір генерациясын ығыстыру, 0,8 т/МВт·сағ шартты коэффициенті.</p>
+  </div>
+</section>
+
+<section id="live">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Деректер графигі · 48 сағат</span>
+      <h2>Өндіріс және аккумулятор жұмысы</h2>
+      <p>Hornsdale сайтындағы «Live Data Graph» сияқты: жел мен күн өндірісі, желіге берілетін жоспарлы қуат және батареяның зарядталуы мен разрядталуы. Бұл — KGER моделінің симуляциясы, нақты өлшем емес.</p>
+    </div>
+    <div class="chart-card">
+      <div class="legend" id="legend">
+        <label><input type="checkbox" data-s="wind" checked><i style="background:var(--wind)"></i>Жел, МВт</label>
+        <label><input type="checkbox" data-s="solar" checked><i style="background:var(--solar)"></i>Күн, МВт</label>
+        <label><input type="checkbox" data-s="target" checked><i style="background:var(--demand);height:2px"></i>Желіге жоспар, МВт</label>
+        <label><input type="checkbox" data-s="batt" checked><i style="background:var(--batt)"></i>Батарея: + разряд / − заряд</label>
+        <label><input type="checkbox" data-s="soc" checked><i style="background:var(--sun);height:2px"></i>Заряд деңгейі, %</label>
+      </div>
+      <div class="chart-scroll"><svg id="chart" viewBox="0 0 860 420" role="img" aria-label="48 сағаттық модельдік өндіріс және батарея графигі"></svg></div>
+      <div class="chart-foot"><span id="readout">Сағатты көру үшін графикке меңзерді апарыңыз.</span><span>Модель: BESS 400 МВт / 1 000 МВт·сағ</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="tech" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Технология</span>
+      <h2>Жүйе қалай жұмыс істейді</h2>
+      <p>Жел мен күн энергиясы ЖИ-диспетчерге түседі. Ол ауа райы болжамы мен сұранысқа қарап, энергияны бірден желіге жіберу немесе батареяда сақтау туралы шешім қабылдайды.</p>
+    </div>
+    <div class="flow-scroll">
+      <svg class="flow" viewBox="0 0 900 250" role="img" aria-label="Энергия ағыны сызбасы">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="var(--muted)"/></marker></defs>
+        <g fill="var(--surface)" stroke="var(--line)" stroke-width="1.5">
+          <rect x="10" y="30" width="170" height="70" rx="8"/><rect x="10" y="150" width="170" height="70" rx="8"/>
+          <rect x="260" y="85" width="180" height="80" rx="8" stroke="var(--sky)" stroke-width="2"/>
+          <rect x="520" y="20" width="170" height="70" rx="8"/><rect x="520" y="160" width="170" height="70" rx="8" stroke="var(--batt)" stroke-width="2"/>
+          <rect x="740" y="90" width="150" height="70" rx="8"/>
+        </g>
+        <g stroke="var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#ar)">
+          <path d="M180 65 L258 110"/><path d="M180 185 L258 140"/>
+          <path d="M440 110 L518 60"/><path d="M440 140 L518 190"/>
+          <path d="M690 55 L738 115"/><path d="M690 195 L738 140"/>
+        </g>
+        <text x="95" y="62" text-anchor="middle" font-weight="600" font-size="14">Жел станциясы</text><text class="sub" x="95" y="82" text-anchor="middle">1 000 МВт · 150 турбина</text>
+        <text x="95" y="182" text-anchor="middle" font-weight="600" font-size="14">Күн станциясы</text><text class="sub" x="95" y="202" text-anchor="middle">300 МВт · ұсыныс</text>
+        <text x="350" y="120" text-anchor="middle" font-weight="600" font-size="14">ЖИ-диспетчер</text><text class="sub" x="350" y="140" text-anchor="middle">болжам · оңтайландыру</text>
+        <text x="605" y="52" text-anchor="middle" font-weight="600" font-size="14">Қосалқы станция</text><text class="sub" x="605" y="72" text-anchor="middle">500 кВ желі</text>
+        <text x="605" y="192" text-anchor="middle" font-weight="600" font-size="14">Аккумулятор (BESS)</text><text class="sub" x="605" y="212" text-anchor="middle">1 000 МВт·сағ · модель</text>
+        <text x="815" y="122" text-anchor="middle" font-weight="600" font-size="14">Тұтынушылар</text><text class="sub" x="815" y="142" text-anchor="middle">Оңтүстік аймақ</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Жаңалықтар</span>
+      <h2>«Мирный» жобасына қосылатын бес бағыт</h2>
+    </div>
+    <div class="inno">
+      <article class="icard"><div class="top"><span class="num">01</span><span class="tag new">Ұсынылатын жаңалық</span></div><h3>Күн электр станциясын қосу</h3><p>Желмен қатар күн энергиясын да өндіру. Екі көз бір қосалқы станцияны ортақ пайдаланады.</p><ul><li>300 МВт фотоэлектр панельдері</li><li>Күндізгі тыныш сағаттарды толтырады</li><li>Желіге қосылу шығыны азаяды</li></ul></article>
+      <article class="icard"><div class="top"><span class="num">02</span><span class="tag">Сақтау</span></div><h3>Аккумуляторлық жүйені жетілдіру</h3><p>Сақтау көлемін сұраныс пен өндіріс көрсеткіштеріне қарай оңтайландыру, батарея қызмет мерзімін бақылау.</p><ul><li>600 → 1 000 МВт·сағ</li><li>Жиілікті ұстау қызметі</li><li>Ұяшықтардың тозуын мониторинг</li></ul></article>
+      <article class="icard"><div class="top"><span class="num">03</span><span class="tag">Цифрландыру</span></div><h3>Жасанды интеллект арқылы басқару</h3><p>Ауа райы болжамы, жел жылдамдығы және сұраныс негізінде өндіріс көлемін болжау.</p><ul><li>24–72 сағаттық жел болжамы</li><li>Зарядтау/разрядтау кестесі</li><li>Турбиналарға болжамды қызмет көрсету</li></ul></article>
+      <article class="icard"><div class="top"><span class="num">04</span><span class="tag">Экология</span></div><h3>Экологиялық мониторинг</h3><p>Турбиналардың құстарға, жануарларға, өсімдіктерге және жергілікті экожүйеге әсерін бақылау.</p><ul><li>Құс ұшуын радармен анықтау</li><li>Қажет кезде турбинаны тоқтату</li><li>Ашық экологиялық есеп</li></ul></article>
+      <article class="icard"><div class="top"><span class="num">05</span><span class="tag">Инфрақұрылым</span></div><h3>Электр желілерін жаңғырту</h3><p>Өндірілген энергияны тұтынушыларға тұрақты жеткізу үшін желілердің өткізу қабілетін дамыту.</p><ul><li>Оңтүстік–Солтүстік транзитін күшейту</li><li>Цифрлық қосалқы станция</li><li>Шығынды азайту</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="benefits" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Пайдасы</span>
+      <h2>Кімге қандай пайда әкеледі</h2>
+    </div>
+    <div class="ben">
+      <div class="bcard"><span class="eyebrow">Жергілікті экономикаға</span><b>Жұмыс орындары</b><p>Құрылыс кезеңінде жүздеген уақытша, пайдалану кезеңінде тұрақты техникалық жұмыс орындары. Жергілікті жеткізушілер мен мердігерлерге тапсырыс.</p></div>
+      <div class="bcard"><span class="eyebrow">Тұтынушыға</span><b>Тұрақты жарық</b><p>Батарея шыңдық сағаттарда электр береді, үзілістер мен жиілік ауытқуы азаяды. Hornsdale алғашқы екі жылда тұтынушыларға 150 млн австралия долларынан астам үнемдеді.</p></div>
+      <div class="bcard"><span class="eyebrow">Қоғамдастыққа</span><b>Ауыл қоры</b><p>Ұсыныс: Мойынқұм ауданына жыл сайынғы қор — мектептерге күн панельдері, жастарға энергетика мамандығы бойынша гранттар.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="lifecycle">
+  <div class="wrap two">
+    <div class="sec-head" style="position:sticky;top:96px">
+      <span class="eyebrow">Жоба кезеңдері</span>
+      <h2>Алаң таңдаудан жаңартуға дейін</h2>
+      <p>Hornsdale сайтындағы өмірлік цикл үлгісі бойынша. Сары белгі — жобаның қазіргі кезеңі.</p>
+    </div>
+    <ol class="life">
+      <li class="done"><div><h3>Алаң таңдау</h3><p>Жел жылдамдығын өлшеу, жер учаскесін анықтау, желіге жақындығын бағалау.</p></div></li>
+      <li class="done"><div><h3>Техникалық-экономикалық негіздеме</h3><p>Алдын ала жобалау, тұрғындармен және жергілікті әкімдікпен алғашқы кездесулер.</p></div></li>
+      <li class="done"><div><h3>Келісімдер мен рұқсаттар <span class="when">PPA · 2023</span></h3><p>Экологиялық бағалау, 25 жылдық электр сату шарты, желіге қосылу шарттары.</p></div></li>
+      <li class="done"><div><h3>Қаржыландыру <span class="when">FID · сәуір 2026</span></h3><p>Түпкілікті инвестициялық шешім, қаржының ~75% халықаралық банктерден.</p></div></li>
+      <li class="now"><div><h3>Құрылыс <span class="here">Біз осындамыз</span></h3><p>150 турбина, аккумулятор алаңы және қосалқы станция салынуда. KGER моделі осы кезеңде күн станциясы мен ЖИ жүйесін қосуды ұсынады.</p></div></li>
+      <li><div><h3>Пайдалану <span class="when">2028 IV тоқсан → 2029</span></h3><p>Кемінде 25 жыл жұмыс, техникалық қызмет, қоғамдастық қорының іске қосылуы.</p></div></li>
+      <li><div><h3>Жаңарту немесе бөлшектеу</h3><p>Турбиналарды жаңа буынмен ауыстыру немесе алаңды табиғи қалпына келтіру.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:24px">
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head"><span class="eyebrow">Жиі қойылатын сұрақтар</span><h2>Сұрақтар мен жауаптар</h2></div>
+    <details open><summary>Жел жоқ кезде электр қайдан келеді?</summary><p>Батарея желді сағаттарда жинаған энергияны береді, күндіз күн станциясы қосылады. ЖИ-диспетчер ертеңгі жел болжамына қарай батареяны алдын ала толтырады.</p></details>
+    <details><summary>Неге дәл Жамбыл облысы?</summary><p>Оңтүстік Қазақстанда желдің әлеуеті жоғары, ал электр тұтыну негізінен оңтүстікте шоғырланған. Бұл генерацияны тұтынушыға жақындатады.</p></details>
+    <details><summary>Батареяның қызмет мерзімі қанша?</summary><p>Литий-иондық жүйелер әдетте 15–20 жыл жұмыс істейді. Модель ұяшықтардың тозуын бақылауды және кезең-кезеңімен ауыстыруды көздейді.</p></details>
+    <details><summary>Жел турбиналары құстарға зиян емес пе?</summary><p>Тәуекел бар, сондықтан модельге радарлық мониторинг енгізілген: құстар үйірі жақындағанда турбиналар уақытша баяулайды немесе тоқтайды.</p></details>
+    <details><summary>Бұл сайт ресми ме?</summary><p>Жоқ. Бұл — оқу-зерттеу жобасының моделі. Базалық деректер ашық дереккөздерден алынды, ал күн станциясы, кеңейтілген батарея және басқа жаңалықтар — авторлық ұсыныс.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <p style="font-family:var(--f-display);font-weight:700;margin-bottom:8px">Kazakhstan Green Energy Reserve</p>
+        <p style="opacity:.85">Жел, күн және аккумуляторды бір жүйеге біріктіретін Қазақстандағы гибридті энергия кешенінің тұжырымдамасы. Оқу-зерттеу жобасы, 2026.</p>
+        <dl class="credits"><div><dt>Жобаны құрастырған</dt><dd>Ерәділова Данайым Мұратқызы</dd></div><div><dt>Ғылыми жетекшісі</dt><dd>Ниханбаева Әсел Қуанышқызы</dd></div></dl>
+      </div>
+      <div>
+        <p style="font-weight:600;margin-bottom:6px">Дереккөздер</p>
+        <ul>
+          <li><a href="https://renewables.totalenergies.com/node/786" target="_blank" rel="noopener">TotalEnergies — Mirny</a></li>
+          <li><a href="https://www.ess-news.com/2026/04/27/totalenergies-advances-kazakhstan-1-gw-wind-site-with-600-mwh-co-located-battery/" target="_blank" rel="noopener">ESS News, 2026</a></li>
+          <li><a href="https://centralasiaclimateportal.org/totalenergies-launches-construction-of-1-gw-mirny-wind-power-plant-in-kazakhstan/" target="_blank" rel="noopener">Central Asia Climate Portal</a></li>
+          <li><a href="https://hornsdalepowerreserve.com.au/" target="_blank" rel="noopener">Hornsdale Power Reserve</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Графиктегі деректер — модельдік симуляция. Ұсынылған көрсеткіштер шартты болжамдарға негізделген.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // menu
+  var mb=document.getElementById('menuBtn'),menu=document.getElementById('menu');
+  mb.addEventListener('click',function(){var o=menu.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+
+  // model switch
+  var S={
+    base:{cap:1000,gen:4.0,sto:600,co2:3.2},
+    model:{cap:1300,gen:4.53,sto:1000,co2:3.62}
+  };
+  function fmt(n,d){return n.toLocaleString('ru-RU',{minimumFractionDigits:d,maximumFractionDigits:d})}
+  function setScen(k){
+    var s=S[k],b=S.base,isM=k==='model';
+    document.getElementById('btnBase').setAttribute('aria-pressed',!isM);
+    document.getElementById('btnModel').setAttribute('aria-pressed',isM);
+    document.getElementById('vCap').innerHTML=fmt(s.cap,0)+' <small>МВт</small>';
+    document.getElementById('vGen').innerHTML=fmt(s.gen,2)+' <small>ТВт·сағ</small>';
+    document.getElementById('vSto').innerHTML=fmt(s.sto,0)+' <small>МВт·сағ</small>';
+    document.getElementById('vCo2').innerHTML='≈'+fmt(s.co2,1)+' <small>млн т</small>';
+    document.getElementById('dCap').textContent=isM?'+300 МВт күн':'';
+    document.getElementById('dGen').textContent=isM?'+'+Math.round((s.gen/b.gen-1)*100)+'%':'';
+    document.getElementById('dSto').textContent=isM?'+'+Math.round((s.sto/b.sto-1)*100)+'%':'';
+    document.getElementById('dCo2').textContent=isM?'+'+fmt(s.co2-b.co2,2)+' млн т':'';
+  }
+  document.getElementById('btnBase').onclick=function(){setScen('base')};
+  document.getElementById('btnModel').onclick=function(){setScen('model')};
+  setScen('model');
+
+  // simulation (seeded)
+  var seed=7;function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}
+  var N=96,dt=0.5,P=400,E=1000,soc=0.5*E,data=[],wn=0;
+  for(var i=0;i<N;i++){
+    var t=i*dt,h=t%24;
+    wn=wn*0.85+(rnd()-0.5)*0.18;
+    var wf=0.5+0.22*Math.sin(2*Math.PI*(t-15)/24)+0.12*Math.sin(2*Math.PI*t/31)+wn;
+    var wind=1000*Math.max(0.05,Math.min(0.95,wf));
+    var solar=(h>6&&h<19)?300*Math.pow(Math.sin(Math.PI*(h-6)/13),1.4)*(0.85+0.15*rnd()):0;
+    var target=(h>=7&&h<23)?(h>=18&&h<22?900:720):520;
+    var gen=wind+solar,diff=gen-target,batt=0;
+    if(diff>0){var c=Math.min(diff,P,(E-soc)/dt*0.95);batt=-c;soc+=c*dt*0.95}
+    else{var d=Math.min(-diff,P,soc/dt);batt=d;soc-=d*dt}
+    data.push({t:t,wind:wind,solar:solar,target:target,batt:batt,soc:soc/E*100});
+  }
+
+  var svg=document.getElementById('chart'),NS='http://www.w3.org/2000/svg';
+  var L=48,R=820,T1=16,B1=250,T2=280,B2=390,Ymax=1400;
+  function x(t){return L+(R-L)*t/47.5}
+  function y1(v){return B1-(B1-T1)*v/Ymax}
+  var mid2=(T2+B2)/2;function y2(v){return mid2-(B2-T2)/2*v/P}
+  function ysoc(v){return B2-(B2-T2)*v/100}
+  function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+  var vis={wind:1,solar:1,target:1,batt:1,soc:1};
+  function draw(){
+    while(svg.firstChild)svg.removeChild(svg.firstChild);
+    var g;
+    // grid
+    [0,350,700,1050,1400].forEach(function(v){el('line',{x1:L,x2:R,y1:y1(v),y2:y1(v),stroke:'var(--line)'});var tx=el('text',{x:L-6,y:y1(v)+3,'text-anchor':'end'});tx.textContent=v});
+    [-400,0,400].forEach(function(v){el('line',{x1:L,x2:R,y1:y2(v),y2:y2(v),stroke:'var(--line)','stroke-dasharray':v?'3 3':''});var tx=el('text',{x:L-6,y:y2(v)+3,'text-anchor':'end'});tx.textContent=(v>0?'+':'')+v});
+    for(var hh=0;hh<=48;hh+=6){var xx=x(Math.min(hh,47.5));el('line',{x1:xx,x2:xx,y1:T1,y2:B2,stroke:'var(--line)','stroke-opacity':.6});var tx=el('text',{x:xx,y:B2+16,'text-anchor':'middle'});tx.textContent=(hh%24<10?'0':'')+(hh%24)+':00'+(hh===24?' (2-күн)':'')}
+    var t1=el('text',{x:R,y:T1+10,'text-anchor':'end'});t1.textContent='МВт';
+    var t2=el('text',{x:R,y:T2+10,'text-anchor':'end'});t2.textContent='Батарея, МВт';
+    // stacked areas
+    if(vis.wind){var p='M'+x(0)+' '+y1(0);data.forEach(function(d){p+=' L'+x(d.t)+' '+y1(d.wind)});p+=' L'+x(47.5)+' '+y1(0)+'Z';el('path',{d:p,fill:'var(--wind)','fill-opacity':.35,stroke:'var(--wind)','stroke-width':1.5})}
+    if(vis.solar){var base=function(d){return vis.wind?d.wind:0};var p2='M'+x(0)+' '+y1(base(data[0]));data.forEach(function(d){p2+=' L'+x(d.t)+' '+y1(base(d)+d.solar)});for(var j=N-1;j>=0;j--)p2+=' L'+x(data[j].t)+' '+y1(base(data[j]));p2+='Z';el('path',{d:p2,fill:'var(--solar)','fill-opacity':.55,stroke:'none'})}
+    if(vis.target){var p3='';data.forEach(function(d,k){p3+=(k?' L':'M')+x(d.t)+' '+y1(d.target)});el('path',{d:p3,fill:'none',stroke:'var(--demand)','stroke-width':2,'stroke-dasharray':'6 4'})}
+    if(vis.batt){var w=(R-L)/N*0.75;data.forEach(function(d){var y0=y2(0),yv=y2(d.batt);el('rect',{x:x(d.t)-w/2,y:Math.min(y0,yv),width:w,height:Math.max(0.5,Math.abs(yv-y0)),fill:'var(--batt)','fill-opacity':d.batt>=0?.95:.45})})}
+    if(vis.soc){var p4='';data.forEach(function(d,k){p4+=(k?' L':'M')+x(d.t)+' '+ysoc(d.soc)});el('path',{d:p4,fill:'none',stroke:'var(--sun)','stroke-width':2})}
+    cursor=el('line',{x1:0,x2:0,y1:T1,y2:B2,stroke:'var(--ink)','stroke-opacity':0});
+  }
+  var cursor;draw();
+  document.getElementById('legend').addEventListener('change',function(e){vis[e.target.dataset.s]=e.target.checked?1:0;draw()});
+  var ro=document.getElementById('readout');
+  svg.addEventListener('pointermove',function(e){
+    var r=svg.getBoundingClientRect(),vx=(e.clientX-r.left)/r.width*860;
+    var i=Math.round((vx-L)/(R-L)*47.5/dt);if(i<0||i>=N)return;var d=data[i];
+    cursor.setAttribute('x1',x(d.t));cursor.setAttribute('x2',x(d.t));cursor.setAttribute('stroke-opacity',.4);
+    var hh=Math.floor(d.t%24),mm=d.t%1?'30':'00';
+    ro.textContent=(d.t>=24?'2-күн ':'1-күн ')+(hh<10?'0':'')+hh+':'+mm+' · жел '+Math.round(d.wind)+' · күн '+Math.round(d.solar)+' · жоспар '+d.target+' · батарея '+(d.batt>=0?'+':'')+Math.round(d.batt)+' МВт · заряд '+Math.round(d.soc)+'%';
+  });
+})();
+</script>
+</body>
+</html>
